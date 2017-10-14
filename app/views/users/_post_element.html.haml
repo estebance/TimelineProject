@@ -1,0 +1,14 @@
+.user_post{id: "post_#{post.id}"}
+  %ul.collection.with-header
+    %a.btn-floating.btn-large.waves-effect.waves-light.red.create_comment{id: "create_comment_post_#{post.id}", data_post_id: post.id}
+      %i.material-icons add
+    %li.collection-header
+      %h4
+        = post.title
+      %p
+        = post.content
+    - post.comments.each do |comment|
+      %li.collection-item
+        = "#{comment.user.email}: #{comment.content}"
+  .comment_form{id: "comment_post_#{post.id}_form"}
+    = render 'users/comment_form', {post: post, comment: comment}

@@ -1,0 +1,22 @@
+- content_for :stylesheets do
+  #header_id { display: none }
+%section.slice.background-people
+  %br
+  %br
+  .wp-section
+    .container
+      .row
+        .col-md-4.col-md-offset-2.col-sm-6.col-sm-offset-3
+          .wp-block.default.user-form.entrepreneur-wp
+            .form-header.center-align
+              %h2 ¿Forgot your password?
+              = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+                .z-depth-1.grey.lighten-4.row{:style => "display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE; width: 380px"}
+                  .row
+                    .input-field.col.s12
+                      = f.label :email
+                      %br/
+                      = f.email_field :email, autofocus: true, class: "validate"
+                    .row
+                      .actions
+                        = f.submit 'Send me reset password instructions', class: "col s12 btn btn-large indigo"

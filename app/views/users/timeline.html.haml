@@ -1,0 +1,6 @@
+.container
+  .row
+    .col.s4.offset-s4
+      .user_posts
+        - @posts.each do |post|
+          = render 'post_element', {post: post,  comment: @comment}

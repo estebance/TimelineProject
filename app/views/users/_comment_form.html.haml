@@ -1,0 +1,10 @@
+= form_for [current_user, post, comment], remote: true do |f|
+
+  .row
+    .input-field.col.s12
+      = f.label :content
+      = f.text_field :content
+
+  .row
+    .actions
+      = f.submit 'Submit', class: 'col s12 btn indigo'

@@ -1,0 +1,12 @@
+%nav
+  .nav-wrapper
+    %a.brand-logo{:href => "#"}
+    %ul#nav-mobile.right.hide-on-med-and-down
+      - if user_signed_in?
+        %li
+          = link_to 'My Timeline', root_path
+        %li
+          = link_to 'Log out', destroy_user_session_path, method: :delete
+      - else
+        %li
+          = link_to 'Login', new_user_session_path

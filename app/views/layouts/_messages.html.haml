@@ -1,0 +1,11 @@
+#toast-container
+  #customAlerts
+  -if flash.now[:error]
+    .toast.vanish
+      =flash.now[:error]
+  -if flash.now[:alert]
+    .toast.vanish
+      =flash.now[:alert]
+  -if flash.now[:notice]
+    .toast.vanish
+      =flash.now[:notice]

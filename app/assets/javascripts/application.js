@@ -16,3 +16,13 @@
 //= require_tree .
 //= require materialize-sprockets
 //= require materialize/extras/nouislider
+
+// initialize bar
+$(document).ready(function(){
+
+    // make toast disappear
+    $('.vanish').delay(5000).fadeOut(1000);
+    //
+    $('.comment_form' ).hide();
+
+});

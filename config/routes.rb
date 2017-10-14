@@ -1,10 +1,27 @@
 Rails.application.routes.draw do
-  resources :comments
-  resources :posts
-  devise_for :users
-  get 'static_pages/home'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  #
-  root to: 'static_pages#home'
+  devise_for :users
+  # get 'static_pages/home'
+
+
+  # define routes for users
+  devise_scope :user do
+
+    authenticated :user do
+      root :to => 'users#my_timeline'
+      get 'users/:user_id/timeline', to: 'users#timeline'
+    end
+
+    unauthenticated :user do
+      root to: 'static_pages#home', as: :unauthenticated_root
+    end
+  end
+
+
+  # define routes for posts and comments
+  resources :users do
+    resources :posts do
+      resources :comments
+    end
+  end
 end
