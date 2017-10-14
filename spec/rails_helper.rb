@@ -62,6 +62,6 @@ RSpec.configure do |config|
   # Factory Girl methods
   config.include FactoryGirl::Syntax::Methods
 
-  config.include Requests::JsonHelpers
-  config.include Requests::AuthenticationHelpers
+  # config.include Requests::JsonHelpers
+  # config.include Requests::AuthenticationHelpers
 end
