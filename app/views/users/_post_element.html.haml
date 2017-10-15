@@ -1,4 +1,5 @@
 .user_post{id: "post_#{post.id}"}
+  .post_edit{id: "post_#{post.id}_edit_form"}
   %ul.collection.with-header
     %a.btn-floating.btn-large.waves-effect.waves-light.red.create_comment{id: "create_comment_post_#{post.id}", data_post_id: post.id}
       %i.material-icons add
@@ -7,8 +8,17 @@
         = post.title
       %p
         = post.content
+
+      - if post.user.id == current_user.id
+        %td
+          = link_to 'Destroy Post', user_post_path(current_user, post), method: :delete, remote: true, data: { confirm: 'Are you sure?' }
+        %td
+          = link_to 'Edit Post', edit_user_post_path(current_user, post), remote: true
+
+
     - post.comments.each do |comment|
-      %li.collection-item
-        = "#{comment.user.email}: #{comment.content}"
+      = render 'users/comment_element', {post: post, comment: comment}
+
+
   .comment_form{id: "comment_post_#{post.id}_form"}
     = render 'users/comment_form', {post: post, comment: comment}

@@ -1,0 +1,6 @@
+$("#post_<%=@post.id%>").remove();
+$(".user_posts").prepend("<%= j render 'users/post_element', {post: @post, comment: @comment}%>");
+$('.comment_form').hide();
+$('.create_comment').click(function(){
+    $("#comment_post_<%=@post.id%>_form").show();
+});

@@ -1,0 +1,3 @@
+$("#edit_post_comment_<%=@comment.id%>_form").empty();
+$("#comment_<%=@comment.id%>_post_<%= @post.id%>").remove();
+$("#post_<%=@post.id%> .collection").append("<%= j render 'users/comment_element', {post: @post, comment: @comment}%>");
