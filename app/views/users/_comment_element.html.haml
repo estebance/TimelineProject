@@ -2,7 +2,7 @@
   = "#{comment.user.email}: #{comment.content}"
   - if comment.user.id == current_user.id
     %td
-      = link_to 'Destroy Comment', user_post_comment_path(current_user, post, comment), method: :delete, remote: true, data: { confirm: 'Are you sure?' }
+      = link_to 'Destroy Comment', user_post_comment_path(post.user, post, comment), method: :delete, remote: true, data: { confirm: 'Are you sure?' }
     %td
-      = link_to 'Edit Comment', edit_user_post_comment_path(current_user, post, comment), remote: true
+      = link_to 'Edit Comment', edit_user_post_comment_path(post.user, post, comment), remote: true
   .post_edit_form{id: "edit_post_comment_#{comment.id}_form"}

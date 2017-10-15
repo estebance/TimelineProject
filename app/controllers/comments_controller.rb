@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.new(comment_params)
-    @comment.user = @user
+    @comment.user = current_user
     respond_to do |format|
       if @comment.save
         format.js
