@@ -8,4 +8,10 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :users
 
+  # follow
+  acts_as_followable
+  acts_as_follower
+
+
+
 end

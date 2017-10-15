@@ -1,0 +1,2 @@
+$("#follow_user_<%=@user.id%>").empty();
+$("#follow_user_<%=@user.id%>").append("<%= j render 'users/follow_user', {user: @user} %>");

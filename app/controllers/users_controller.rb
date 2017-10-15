@@ -4,6 +4,23 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:my_timeline]
   before_action :set_new_comment
 
+
+  def index
+    @users = User.all
+  end
+
+  def follow
+    @user = User.find(params[:user_id])
+    current_user.follow(@user)
+  end
+
+
+  def unfollow
+    @user = User.find(params[:user_id])
+    current_user.stop_following(@user)
+  end
+
+
   def my_timeline
     @new_post = @user.posts.new
     @posts = @user.posts.all

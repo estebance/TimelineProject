@@ -1,0 +1,6 @@
+- if user.followed_by?(current_user)
+  = link_to unfollow_user_path(user.id), remote:true do
+    %i.material-icons label_outline
+- else
+  = link_to follow_user_path(user.id), remote:true do
+    %i.material-icons label

@@ -1,0 +1,13 @@
+.container
+  .row
+    .col.s10.offset-s1
+      %ul.collection
+        - @users.each do |user|
+          - if user.id != current_user.id
+            %li.collection-item.avatar
+              %i.material-icons.circle folder
+              %span.title
+                = user.email
+              %a.secondary-content{:href => "#!"}
+                .follow_user{id: "follow_user_#{user.id}"}
+                  = render 'follow_user', {user: user}
