@@ -75,6 +75,20 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  # mailer configurations
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :user_name => ENV['MAILER_TIMELINE_USERNAME'],
+      :password => ENV['MAILER_TIMELINE_PASSWORD'],
+      :address => ENV['MAILER_TIMELINE_ADDRESS'],
+      :domain => ENV['MAILER_TIMELINE_URL'],
+      :port => ENV['MAILER_TIMELINE_PORT'],
+      :authentication => :cram_md5
+  }
+  config.action_mailer.default_url_options = {host: ENV['TIMELINE_URL']}
+
+
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter

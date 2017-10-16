@@ -18,6 +18,12 @@ Please refer to the prerequisites section to see which versions of ruby and rail
 Define your environment variables for postgresql
 export TIMELINE_DATABASE_USER="estebance" 
 export TIMELINE_DATABASE_PASSWORD="estebance"
+export MAILER_TIMELINE_USERNAME="test"
+export MAILER_TIMELINE_PASSWORD="test"
+export MAILER_TIMELINE_ADDRESS="smtp.mailtrap.io"
+export MAILER_TIMELINE_URL="smtp.mailtrap.io"
+export MAILER_TIMELINE_PORT="2525"
+export TIMELINE_URL="localhost:3000"
 
 Migrate and prepare your database for tests and development 
 rails db:test:prepare
